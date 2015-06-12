@@ -34,11 +34,11 @@ public class Client extends JFrame{
 		entity.setLayout(new BoxLayout(entity, BoxLayout.Y_AXIS));
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setPreferredSize(new Dimension(200,120));
+		printField.setEditable(false);
 		scrollPane.setViewportView(printField);
 		entity.add(scrollPane);
 		JPanel bot = new JPanel();
 		bot.setLayout(new FlowLayout());
-		writeField.setPreferredSize(new Dimension(200,60));
 		bot.add(writeField);
 		finishButton = new JButton("Pass");
 		finishButton.addActionListener(new ActionListener() {
@@ -76,11 +76,11 @@ public class Client extends JFrame{
 	}
 	
 	private void connect(){
-		printField.append("Try to coneect");
+		printField.append("Try to coneect\n");
 		try{
 			clientSocket = new Socket("127.0.0.1",8998);
 			writer = new PrintWriter(clientSocket.getOutputStream(),true);
-			printField.append("finish connecting");
+			printField.append("finish connecting\n");
 		}catch(Exception e){
 			e.printStackTrace();
 		}

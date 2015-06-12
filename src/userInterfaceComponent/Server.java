@@ -23,6 +23,7 @@ public class Server {
 			while(true){
 				socket =  server.accept();
 				reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+				getClientMessage();
 			}
 				
 		}catch(Exception e){
